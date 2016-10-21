@@ -22,28 +22,28 @@ PRODUCT_PROPERTY_OVERRIDES += persist.sys.dun.override=0
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/qd/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/qd/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
-    vendor/qd/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
+    vendor/fh/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/fh/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/fh/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
+    vendor/fh/prebuilt/common/bin/whitelist:system/addon.d/whitelist \
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/qd/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/fh/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/fh/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/bin/sysinit:system/bin/sysinit \
-    vendor/qd/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/qd/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/fh/prebuilt/common/bin/sysinit:system/bin/sysinit \
+    vendor/fh/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/fh/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # Init file
 PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/etc/init.local.rc:root/init.qd.rc
+    vendor/fh/prebuilt/common/etc/init.local.rc:root/init.qd.rc
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -138,11 +138,11 @@ PRODUCT_PACKAGES += \
 
 # World APN list
 PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/fh/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # Overlays
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/qd/overlay/common
+    vendor/fh/overlay/common
 
 # LatinIME...
 
@@ -152,23 +152,23 @@ PRODUCT_PACKAGES += \
 
 # Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/qd/overlay/dictionaries
+    vendor/fh/overlay/dictionaries
 
 # Proprietary LatinIME libs needed for keyboard swyping
 ifneq ($(filter arm64,$(TARGET_ARCH)),)
 PRODUCT_COPY_FILES += \
-    vendor/qd/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
+    vendor/fh/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 else
 PRODUCT_COPY_FILES += \
     vendor/qd/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
 endif
 
-# QuantumDroid Version
-QD_VERSION := QuantumDroid-Beta-V1.0
+# FireHound Version
+FH_VERSION := Firehound-Beta-V1.0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.mod.version=$(QD_VERSION) \
-	ro.qd.version=$(QD_VERSION)
+	ro.mod.version=$(FH_VERSION) \
+	ro.fh.version=$(FH_VERSION)
 
 # By default, do not update the recovery with system updates
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.recovery_update=false
